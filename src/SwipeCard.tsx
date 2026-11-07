@@ -3,10 +3,12 @@ import { useRef, useState } from 'react'
 type Props = {
   name: string
   description: string
+  emoji: string
+  color: string
   onSwipe: (liked: boolean) => void
 }
 
-export default function SwipeCard({ name, description, onSwipe }: Props) {
+export default function SwipeCard({ name, description, emoji, color, onSwipe }: Props) {
   const [dragX, setDragX] = useState(0)
   const [dragging, setDragging] = useState(false)
   const [flown, setFlown] = useState(false)
@@ -51,6 +53,9 @@ export default function SwipeCard({ name, description, onSwipe }: Props) {
       onPointerCancel={handlePointerUp}
     >
       <div className="location-card">
+         <div className="card-hero" style={{ background: color }}>
+          <span className="card-emoji">{emoji}</span>
+        </div>
         <h3>{name}</h3>
         <p>{description}</p>
         <p><small>Swipe right to waggle 🐝</small></p>

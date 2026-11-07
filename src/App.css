@@ -1,7 +1,49 @@
+html,
+body {
+  background-color: #fff6dc;
+  color: #222;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1rem;
+  border: none;
+  text-align: center;
+  background: transparent;
+}
+
+.logo h1 {
+  margin: 0 0 1rem;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: #3b2a00;
+}
+
+#root h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.5rem;
+  color: #3b2a00;
+}
+
+.hex {
+  width: 56px;
+  height: 64px;
+  margin: 0 auto 0.5rem;
+  background: #f5b700;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
 .cards {
   position: relative;
   width: 300px;
-  height: 200px;
+  height: 320px;
   margin: 20px auto;
 }
 
@@ -28,6 +70,20 @@
   overflow: hidden;
   text-align: center;
   padding: 1rem;
+  box-shadow: 0 6px 18px rgba(59, 42, 0, 0.15);
+}
+
+.card-hero {
+  height: 130px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-emoji {
+  font-size: 64px;
 }
 
 button {
@@ -43,4 +99,9 @@ button {
 
 button:hover {
   background: #d99f00;
+}
+
+.results {
+  list-style: none;
+  padding: 0;
 }
