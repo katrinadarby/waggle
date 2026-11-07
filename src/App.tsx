@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import SwipeCard from './SwipeCard'
+import './App.css'
 
 type Destination = { name: string; description: string }
 
@@ -34,8 +36,14 @@ function App() {
   return (
     <div>
       <h1>Waggle</h1>
-      <h2>{current.name}</h2>
-      <p>{current.description}</p>
+      <div className="cards">
+        <SwipeCard
+          key={current.name}
+          name={current.name}
+          description={current.description}
+          onSwipe={vote}
+        />
+      </div>
       <button onClick={() => vote(false)}>Nope</button>
       <button onClick={() => vote(true)}>Waggle!</button>
     </div>
