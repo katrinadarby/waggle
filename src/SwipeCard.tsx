@@ -40,6 +40,9 @@ export default function SwipeCard({ name, description, emoji, color, onSwipe }: 
     setTimeout(() => onSwipe(direction === 1), 300)
   }
 
+  const likeOpacity = Math.min(Math.max(dragX / 100, 0), 1)
+  const nopeOpacity = Math.min(Math.max(-dragX / 100, 0), 1)
+
   return (
     <div
       className={`swipe-wrapper ${dragging ? 'dragging' : ''}`}
@@ -52,14 +55,17 @@ export default function SwipeCard({ name, description, emoji, color, onSwipe }: 
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-      <div className="location-card">
-         <div className="card-hero" style={{ background: color }}>
+      
+     <div className="location-card">
+        <span className="stamp stamp-like" style={{ opacity: likeOpacity }}>WAGGLE</span>
+        <span className="stamp stamp-nope" style={{ opacity: nopeOpacity }}>NOPE</span>
+        <div className="card-hero" style={{ background: color }}>
           <span className="card-emoji">{emoji}</span>
         </div>
         <h3>{name}</h3>
         <p>{description}</p>
         <p><small>Swipe right to waggle 🐝</small></p>
-      </div>
+    </div>
     </div>
   )
 }
